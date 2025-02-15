@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BioStat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Height="800" Width="600"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+        
+        <Border Background="#F5F5F5" CornerRadius="30">
+                <Grid>
+                      <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="Auto"/>
+                      </Grid.ColumnDefinitions>  
+                      <Grid.RowDefinitions>
+                          <RowDefinition Height="200"/>
+                          <RowDefinition Height="600"/>
+                              
+                      </Grid.RowDefinitions>
+                </Grid>
+                
+        </Border>        
+        
+        
 
-    </Grid>
 </Window>
