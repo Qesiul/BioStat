@@ -8,13 +8,15 @@
         Height="800" Width="600"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        WindowStyle = "None">
         
-        <Border Background="#F5F5F5" CornerRadius="30">
+    <Border Background="#F5F5F5" CornerRadius="30">
                 <Grid>
                       <Grid.RowDefinitions>
                           <RowDefinition Height="100"/>
-                          <RowDefinition Height="250"/>
+                          <RowDefinition Height="75"/>
+                          <RowDefinition Height="550"/>
                       </Grid.RowDefinitions>
                     
                       <TextBlock
@@ -24,6 +26,33 @@
                           Foreground="#333333"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"/>
+                      
+                      <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                          <RadioButton Content="BMI"
+                                       Height="50"
+                                       Foreground="#333333"
+                                       FontSize="20"
+                                       Style="{StaticResource MenuButtonTheme}"/>
+                          
+                          <RadioButton Content="NFFMI"
+                                       Height="50"
+                                       Foreground="#333333"
+                                       FontSize="20"
+                                       Style="{StaticResource MenuButtonTheme}"/>
+                          
+                          <RadioButton Content="BMR"
+                                       Height="50"
+                                       Foreground="#333333"
+                                       FontSize="20"
+                                       Style="{StaticResource MenuButtonTheme}"/>
+                          
+                          <RadioButton Content="WHR"
+                                       Height="50"
+                                       Foreground="#333333"
+                                       FontSize="20"
+                                       Style="{StaticResource MenuButtonTheme}"/>
+                          
+                      </StackPanel>
                 </Grid>
                 
         </Border>        

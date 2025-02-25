@@ -12,7 +12,6 @@
       <Folder Include="Fonts\" />
       <Folder Include="Images\" />
       <Folder Include="MVVM\" />
-      <Folder Include="Theme\" />
     </ItemGroup>
 
 </Project>
