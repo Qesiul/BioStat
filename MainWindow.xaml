@@ -12,14 +12,18 @@
         
         <Border Background="#F5F5F5" CornerRadius="30">
                 <Grid>
-                      <Grid.ColumnDefinitions>
-                          <ColumnDefinition Width="Auto"/>
-                      </Grid.ColumnDefinitions>  
                       <Grid.RowDefinitions>
-                          <RowDefinition Height="200"/>
-                          <RowDefinition Height="600"/>
-                              
+                          <RowDefinition Height="100"/>
+                          <RowDefinition Height="250"/>
                       </Grid.RowDefinitions>
+                    
+                      <TextBlock
+                          Grid.Row="0"
+                          Text = "BioStat"
+                          FontSize="46"
+                          Foreground="#333333"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
                 </Grid>
                 
         </Border>        
