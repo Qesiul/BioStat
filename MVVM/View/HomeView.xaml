@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="BioStat.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:BioStat.MVVM.View"
+             mc:Ignorable="d"
+             d:DesignHeight="550" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock
+            Grid.Row="0"
+            Text="Welcome again!"
+            FontSize="36"
+            TextAlignment="Center"
+            Foreground="#333333"/>
+        
+        <Viewbox Grid.Row="1">
+        <Calendar 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            RenderSize="40"/>
+        </Viewbox>
+        
+        <TextBlock
+            Grid.Row="2"
+            Text="Zwierzetaxxx.pl"
+            FontSize="24"
+            TextAlignment="Center"/>
+    </Grid>
+</UserControl>

@@ -11,7 +11,7 @@
     <ItemGroup>
       <Folder Include="Fonts\" />
       <Folder Include="Images\" />
-      <Folder Include="MVVM\" />
+      <Folder Include="MVVM\Model\" />
     </ItemGroup>
 
 </Project>
