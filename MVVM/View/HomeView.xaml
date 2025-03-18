@@ -24,13 +24,15 @@
         <Calendar 
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            RenderSize="40"/>
+            MinHeight="20"
+            MinWidth="20"/>
         </Viewbox>
         
         <TextBlock
             Grid.Row="2"
-            Text="Zwierzetaxxx.pl"
-            FontSize="24"
-            TextAlignment="Center"/>
+            Text="Remember! You shouldn't check your body measurements every single day.&#x0a;To keep a healthy balance treat them as a nice to have knowledge once a week :)"
+            FontSize="14"
+            TextAlignment="Center"
+            Margin="0,10,0,0"/>
     </Grid>
 </UserControl>

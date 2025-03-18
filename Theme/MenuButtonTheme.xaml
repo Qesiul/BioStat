@@ -31,10 +31,10 @@
         
         <Style.Triggers>
             <Trigger Property = "IsMouseOver" Value = "True">
-                <Setter Property = "Background" Value="#E0E0E0"/>
+                <Setter Property = "Background" Value="#43A047"/>
             </Trigger>
             <Trigger Property = "IsChecked" Value = "True">
-                <Setter Property = "Background" Value="#D6D6D6"/>
+                <Setter Property = "Background" Value="#388E3C"/>
             </Trigger>
         </Style.Triggers>
         

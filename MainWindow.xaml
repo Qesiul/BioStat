@@ -4,20 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BioStat"
+        xmlns:viewModel="clr-namespace:BioStat.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="800" Width="600"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle = "None">
+    
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
         
     <Border Background="#F5F5F5" CornerRadius="30">
                 <Grid>
                       <Grid.RowDefinitions>
                           <RowDefinition Height="100"/>
-                          <RowDefinition Height="75"/>
-                          <RowDefinition Height="550"/>
-                          <RowDefinition Height="75"/>
+                          <RowDefinition Height="50"/>
+                          <RowDefinition Height="600"/>
+                          <RowDefinition Height="50"/>
                       </Grid.RowDefinitions>
                     
                       <TextBlock
@@ -28,12 +33,13 @@
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"/>
                       
-                      <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                      <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Background="#4CAF50" Width="600">
                           <RadioButton Content="BMI"
                                        Height="50"
                                        Foreground="#333333"
                                        FontSize="20"
-                                       Style="{StaticResource MenuButtonTheme}"/>
+                                       Style="{StaticResource MenuButtonTheme}"
+                                       Command="{Binding BmiViewCommand}"/>
                           
                           <RadioButton Content="NFFMI"
                                        Height="50"
@@ -55,7 +61,18 @@
                           
                       </StackPanel>
                       
-                      <ContentControl Grid.Row="2" Margin="20,10,20,0"/>
+                      <ContentControl Grid.Row="2" 
+                                      Margin="20,10,20,0"
+                                      Content = "{Binding currentViewGS}"/>
+                      
+                      <Border Grid.Row="3" Background="#4CAF50" CornerRadius="0,0,30,30">
+                      <DockPanel >
+                          <TextBlock DockPanel.Dock="Right" Text="Tesr421414141" Margin="0,20,10,0"/>
+                          <TextBlock Text="Author: Luis Wysocki" Margin="10,20,0,0"/>
+                      </DockPanel>
+                      </Border>
+                                  
+                                  
                 </Grid>
                 
         </Border>        
