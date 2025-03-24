@@ -4,10 +4,12 @@
              xmlns:local="clr-namespace:BioStat"
              xmlns:viewModel="clr-namespace:BioStat.MVVM.ViewModel"
              xmlns:view="clr-namespace:BioStat.MVVM.View"
+             xmlns:model="clr-namespace:BioStat.MVVM.Model"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
+                 <ResourceDictionary Source = "Theme/UnitTypeButtonTheme.xaml"/>
                  <ResourceDictionary Source = "Theme/MenuButtonTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              

@@ -4,9 +4,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BioStat.MVVM.View"
+             xmlns:viewmodel="clr-namespace:BioStat.MVVM.ViewModel"
              mc:Ignorable="d"
              d:DesignHeight="550" d:DesignWidth="600">
-    <Grid Background="Brown">
+    
+    <UserControl.DataContext>
+        <viewmodel:BmiViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Width="600">
+            <RadioButton 
+                Content="Metric"
+                Margin="180,0,0,0"
+                Style="{StaticResource UnitTypeButtonTheme}"
+                />
+            
+            <RadioButton 
+                Content="Imperial"
+                Margin="75,0,0,0"
+                Style="{StaticResource UnitTypeButtonTheme}"
+            />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="600">
+            <TextBlock 
+                Text="Height:"
+                FontSize="16"
+                Margin="151,50,0,5"/>
+            <TextBox PreviewTextInput="NumberOnlyTextBox"
+                     Width="300"
+                     Height="30"
+                     FontSize="20"
+                     BorderThickness="2"
+                     Margin="0, 0, 0, 0"
+            />
+        </StackPanel>
         
     </Grid>
 </UserControl>
