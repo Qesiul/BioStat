@@ -12,7 +12,7 @@ public partial class BmiView : UserControl
 
     private void NumberOnlyTextBox(object sender, TextCompositionEventArgs e)
     {
-        var model = new BioStat.MVVM.Model.BmiModel();
-        model.NumberOnlyTextBox(sender, e);
+        var bmiM = new BioStat.MVVM.Model.BmiModel();
+        bmiM.NumberOnlyTextBox(sender, e);
     }
 }

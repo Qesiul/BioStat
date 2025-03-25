@@ -1,4 +1,5 @@
 ﻿using BioStat.Core;
+using BioStat.MVVM.Model;
 
 namespace BioStat.MVVM.ViewModel;
 

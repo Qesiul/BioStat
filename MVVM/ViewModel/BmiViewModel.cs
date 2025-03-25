@@ -6,12 +6,12 @@ namespace BioStat.MVVM.ViewModel;
 
 public class BmiViewModel : INotifyPropertyChanged
 {
-    private readonly BmiModel model;
+    private readonly BmiModel bmiM;
     private string heightValue;
 
     public BmiViewModel()
     {
-        model = new BmiModel();
+        bmiM = new BmiModel();
     }
 
     public string HeightValue

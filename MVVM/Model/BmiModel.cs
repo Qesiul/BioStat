@@ -10,4 +10,6 @@ public class BmiModel
         Regex regex = new Regex("[^0-9]+");
         e.Handled = regex.IsMatch(e.Text);
     }
+    
+    public void UnitTypeChanged(object sender, Text)
 }

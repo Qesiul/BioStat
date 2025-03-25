@@ -20,32 +20,68 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Width="600">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <RadioButton 
+                IsChecked="True"
                 Content="Metric"
-                Margin="180,0,0,0"
+                Margin="-25,0,0,0"
                 Style="{StaticResource UnitTypeButtonTheme}"
                 />
             
             <RadioButton 
                 Content="Imperial"
-                Margin="75,0,0,0"
+                Margin="125,0,0,0"
                 Style="{StaticResource UnitTypeButtonTheme}"
             />
         </StackPanel>
         
-        <StackPanel Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="600">
+        <StackPanel Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center">
             <TextBlock 
                 Text="Height:"
                 FontSize="16"
-                Margin="151,50,0,5"/>
+                Margin="0,50,0,5"/>
+            <StackPanel Orientation="Horizontal">
             <TextBox PreviewTextInput="NumberOnlyTextBox"
+                     Visibility="Visible"
                      Width="300"
-                     Height="30"
-                     FontSize="20"
-                     BorderThickness="2"
+                     FontSize="16"
+                     BorderThickness="3"
                      Margin="0, 0, 0, 0"
+                     Style="{StaticResource RoundedTextBox}"
             />
+            <TextBlock
+                Visibility="Visible"
+                Text="cm"
+                FontSize="14"
+                Margin="3,8,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+            <TextBox PreviewTextInput="NumberOnlyTextBox"
+                     Visibility="Collapsed"
+                     Width="140"
+                     FontSize="16"
+                     BorderThickness="3"
+                     Style="{StaticResource RoundedTextBox}"
+                />
+            <TextBlock
+                Visibility="Collapsed"
+                Text="ft"
+                FontSize="14"
+                Margin="3, 8,0,0"/>
+            <TextBox PreviewTextInput="NumberOnlyTextBox"
+                     Visibility="Collapsed"
+                     Width="140"
+                     FontSize="16"
+                     BorderThickness="3"
+                     Margin="7,0,0,0"
+                     Style="{StaticResource RoundedTextBox}"
+                     />
+            <TextBlock
+                Visibility="Collapsed"
+                Text="in"
+                FontSize="14"
+                Margin="3,8,0,0"/>
+            </StackPanel>
         </StackPanel>
         
     </Grid>
