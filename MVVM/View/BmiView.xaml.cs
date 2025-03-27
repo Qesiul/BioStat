@@ -32,6 +32,7 @@ public partial class BmiView : UserControl
                 ImperialTextBox2.Visibility = Visibility.Collapsed;
                 ImperialTextBlock1.Visibility = Visibility.Collapsed;
                 ImperialTextBlock2.Visibility = Visibility.Collapsed;
+                WeightTextBlock.Text = "kg";
             }
             else if (ImperialUnitsRadioButton.IsChecked == true)
             {
@@ -41,6 +42,7 @@ public partial class BmiView : UserControl
                 ImperialTextBox2.Visibility = Visibility.Visible;
                 ImperialTextBlock1.Visibility = Visibility.Visible;
                 ImperialTextBlock2.Visibility = Visibility.Visible;
+                WeightTextBlock.Text = "lbs";
             }
         }
 

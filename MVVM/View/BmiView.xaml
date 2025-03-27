@@ -83,6 +83,33 @@
                 Margin="3,8,0,0"/>
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+            <TextBlock
+                Text="Weight:"
+                FontSize="16"
+                Margin="0,50,0,0"
+                />
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="WeightTextBox"
+                    PreviewTextInput="NumberOnlyTextBox"
+                    Width="300"
+                    FontSize="16"
+                    BorderThickness="3"
+                    Style="{StaticResource RoundedTextBox}"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock x:Name="WeightTextBlock"
+                    FontSize="14"
+                    Text="kg"
+                    Margin="3,8,0,0"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="BmiCalculateButton" Style="{StaticResource CalculateButtonTheme}">
+                Calculate
+            </Button>
+        </StackPanel>
         
     </Grid>
 </UserControl>

@@ -12,6 +12,7 @@
                  <ResourceDictionary Source = "Theme/UnitTypeButtonTheme.xaml"/>
                  <ResourceDictionary Source = "Theme/MenuButtonTheme.xaml"/>
                  <ResourceDictionary Source = "Theme/RoundedTextBox.xaml"/>
+                 <ResourceDictionary Source = "Theme/CalculateButtonTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
