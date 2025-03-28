@@ -24,7 +24,7 @@
             <RadioButton x:Name="MetricUnitsRadioButton" Click="UnitTypeChanged"
                 IsChecked="True"
                 Content="Metric"
-                Margin="-25,0,0,0"
+                Margin="0,0,0,0"
                 Style="{StaticResource UnitTypeButtonTheme}"
                 />
             
@@ -39,14 +39,14 @@
             <TextBlock 
                 Text="Height:"
                 FontSize="16"
-                Margin="0,50,0,5"/>
+                Margin="15,50,0,5"/>
             <StackPanel Orientation="Horizontal">
             <TextBox PreviewTextInput="NumberOnlyTextBox" x:Name="MetricTextBox"
                      Visibility="Visible"
                      Width="300"
                      FontSize="16"
                      BorderThickness="3"
-                     Margin="0, 0, 0, 0"
+                     Margin="15,0,0,0"
                      Style="{StaticResource RoundedTextBox}"
             />
             <TextBlock x:Name="MetricTextBlock"
@@ -61,6 +61,7 @@
                      Width="140"
                      FontSize="16"
                      BorderThickness="3"
+                     Margin="15,0,0,0"
                      Style="{StaticResource RoundedTextBox}"
                 />
             <TextBlock
@@ -73,21 +74,21 @@
                      Width="140"
                      FontSize="16"
                      BorderThickness="3"
-                     Margin="7,0,0,0"
+                     Margin="5,0,0,0"
                      Style="{StaticResource RoundedTextBox}"
                      />
             <TextBlock x:Name="ImperialTextBlock2"
                 Visibility="Collapsed"
                 Text="in"
                 FontSize="14"
-                Margin="3,8,0,0"/>
+                Margin="3,8,10,0"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Center">
             <TextBlock
                 Text="Weight:"
                 FontSize="16"
-                Margin="0,50,0,0"
+                Margin="15,50,0,0"
                 />
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="WeightTextBox"
@@ -96,7 +97,7 @@
                     FontSize="16"
                     BorderThickness="3"
                     Style="{StaticResource RoundedTextBox}"
-                    Margin="0,0,0,0"
+                    Margin="15,0,0,0"
                 />
                 <TextBlock x:Name="WeightTextBlock"
                     FontSize="14"
@@ -106,9 +107,20 @@
         </StackPanel>
         
         <StackPanel Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button x:Name="BmiCalculateButton" Style="{StaticResource CalculateButtonTheme}">
-                Calculate
-            </Button>
+            <Button x:Name="BmiCalculateButton" 
+                    Content="Calculate" 
+                    Style="{StaticResource CalculateButtonTheme}"
+                    Margin="0,40,0,0"
+                    MinHeight="40"
+                    MinWidth="150"
+                    />
+            <Button x:Name="BmiResetButton" 
+                    Content="Reset" 
+                    Style="{StaticResource ResetButtonTheme}"
+                    Margin="100,40,0,0"
+                    MinHeight="40"
+                    MinWidth="150"
+                    />
         </StackPanel>
         
     </Grid>
