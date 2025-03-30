@@ -10,8 +10,11 @@ public class BmiViewModel : INotifyPropertyChanged
 {
     private readonly BmiModel bmiM;
     private string heightValue;
+    private string heightValueFeet;
     private string weightValue;
     private string bmiValue;
+    private string bmiRange;
+    private string bmiRangeColour;
 
     public string HeightValue
     {
@@ -20,6 +23,16 @@ public class BmiViewModel : INotifyPropertyChanged
         {
                 heightValue = value;
                 OnPropertyChanged();
+        }
+    }
+
+    public string HeightValueFeet
+    {
+        get => heightValueFeet;
+        set
+        {
+            heightValueFeet = value;
+            OnPropertyChanged();
         }
     }
 
@@ -42,6 +55,26 @@ public class BmiViewModel : INotifyPropertyChanged
             OnPropertyChanged();
         }
     }
+
+    public string BmiRange
+    {
+        get => bmiRange;
+        set
+        {
+            bmiRange = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string BmiRangeColour
+    {
+        get => bmiRangeColour;
+        set
+        {
+            bmiRangeColour = value;
+            OnPropertyChanged();
+        }
+    }
     
     public ICommand BmiCommand { get; private set; }
     
@@ -49,24 +82,31 @@ public class BmiViewModel : INotifyPropertyChanged
 
     private bool CanExecuteCalculate(object parameter)
     {
-        return double.TryParse(HeightValue, out _) && double.TryParse(WeightValue, out _);
+        return (double.TryParse(HeightValue, out _) && double.TryParse(WeightValue, out _) && double.TryParse(HeightValueFeet, out _));
     }
 
     private void ExecuteCalculate(object parameter)
     {
-        if (double.TryParse(HeightValue, out double heightBmi) && double.TryParse(WeightValue, out double weightBmi))
+        if (double.TryParse(HeightValue, out double heightBmi) && double.TryParse(WeightValue, out double weightBmi) && double.TryParse(HeightValueFeet, out double heightFeetBmi))
         {
+            heightBmi = heightBmi + (heightFeetBmi * 12);
             double resultBmi = bmiM.CalculateBmi(heightBmi, weightBmi);
+            string bmiRange = bmiM.SetBmiRange(resultBmi);
+            string bmiRangeColour = bmiM.SetBmiRangeColour(bmiRange);
             resultBmi = Math.Round(resultBmi, 2);
             BmiValue = resultBmi.ToString();
+            BmiRange = bmiRange;
+            BmiRangeColour = bmiRangeColour;
         }
     }
 
     private void ExecuteReset(object parameter)
     {
         HeightValue = string.Empty;
+        HeightValueFeet = string.Empty;
         WeightValue = string.Empty;
         BmiValue = string.Empty;
+        BmiRange = string.Empty;
     }
     
     public BmiViewModel()

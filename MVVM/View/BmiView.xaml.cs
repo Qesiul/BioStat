@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using BioStat.Core;
 
 namespace BioStat.MVVM.View;
@@ -14,13 +16,13 @@ public partial class BmiView : UserControl
         errorHandler = new ErrorHandler();
     }
 
-    private void NumberOnlyTextBox(object sender, TextCompositionEventArgs e)
+    public void NumberOnlyTextBox(object sender, TextCompositionEventArgs e)
     {
-        var bmiM = new BioStat.MVVM.Model.BmiModel();
-        bmiM.NumberOnlyTextBox(sender, e);
+        Regex regex = new Regex("[^0-9]+");
+        e.Handled = regex.IsMatch(e.Text);
     }
     
-    public void UnitTypeChanged(object sender, RoutedEventArgs e)
+    private void UnitTypeChanged(object sender, RoutedEventArgs e)
     {
         try
         {
