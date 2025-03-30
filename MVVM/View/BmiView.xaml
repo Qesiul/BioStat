@@ -43,6 +43,7 @@
             <StackPanel Orientation="Horizontal">
             <TextBox PreviewTextInput="NumberOnlyTextBox" x:Name="MetricTextBox"
                      Visibility="Visible"
+                     Text="{Binding HeightValue, UpdateSourceTrigger=PropertyChanged}"
                      Width="300"
                      FontSize="16"
                      BorderThickness="3"
@@ -93,6 +94,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="WeightTextBox"
                     PreviewTextInput="NumberOnlyTextBox"
+                    Text="{Binding WeightValue, UpdateSourceTrigger=PropertyChanged}"
                     Width="300"
                     FontSize="16"
                     BorderThickness="3"
@@ -109,18 +111,27 @@
         <StackPanel Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="BmiCalculateButton" 
                     Content="Calculate" 
+                    Command="{Binding BmiCommand}"
                     Style="{StaticResource CalculateButtonTheme}"
                     Margin="0,40,0,0"
                     MinHeight="40"
                     MinWidth="150"
                     />
             <Button x:Name="BmiResetButton" 
-                    Content="Reset" 
+                    Content="Reset"
+                    Command="{Binding ResetCommand}"
                     Style="{StaticResource ResetButtonTheme}"
                     Margin="100,40,0,0"
                     MinHeight="40"
                     MinWidth="150"
                     />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock Text="{Binding BmiValue}"
+                   FontSize="36"
+                   Margin="0,20,0,0"
+                   />
         </StackPanel>
         
     </Grid>

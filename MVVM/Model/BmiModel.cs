@@ -12,4 +12,10 @@ public class BmiModel
         Regex regex = new Regex("[^0-9]+");
         e.Handled = regex.IsMatch(e.Text);
     }
+
+    public double CalculateBmi(double heightBmi, double weightBmi)
+    {
+        heightBmi = heightBmi / 100;
+        return weightBmi / Math.Pow(heightBmi, 2);
+    }
 }
