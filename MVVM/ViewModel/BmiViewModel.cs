@@ -82,22 +82,28 @@ public class BmiViewModel : INotifyPropertyChanged
 
     private bool CanExecuteCalculate(object parameter)
     {
-        return (double.TryParse(HeightValue, out _) && double.TryParse(WeightValue, out _) && double.TryParse(HeightValueFeet, out _));
+        return (double.TryParse(HeightValue, out _) && double.TryParse(WeightValue, out _));
     }
 
     private void ExecuteCalculate(object parameter)
     {
-        if (double.TryParse(HeightValue, out double heightBmi) && double.TryParse(WeightValue, out double weightBmi) && double.TryParse(HeightValueFeet, out double heightFeetBmi))
+        double resultBmi = 0;
+        if (double.TryParse(HeightValue, out double heightBmiImperial) && double.TryParse(WeightValue, out double weightBmiImperial) &&
+            double.TryParse(HeightValueFeet, out double heightFeetBmi))
         {
-            heightBmi = heightBmi + (heightFeetBmi * 12);
-            double resultBmi = bmiM.CalculateBmi(heightBmi, weightBmi);
-            string bmiRange = bmiM.SetBmiRange(resultBmi);
-            string bmiRangeColour = bmiM.SetBmiRangeColour(bmiRange);
-            resultBmi = Math.Round(resultBmi, 2);
-            BmiValue = resultBmi.ToString();
-            BmiRange = bmiRange;
-            BmiRangeColour = bmiRangeColour;
+            resultBmi = bmiM.CalculateBmiImperial(heightBmiImperial, weightBmiImperial, heightFeetBmi);
         }
+        else if (double.TryParse(HeightValue, out double heightBmiMetric) &&
+                 double.TryParse(WeightValue, out double weightBmiMetric))
+        {
+            resultBmi = bmiM.CalculateBmiMetric(heightBmiMetric, weightBmiMetric);
+        }
+        string bmiRange = bmiM.SetBmiRange(resultBmi);
+        string bmiRangeColour = bmiM.SetBmiRangeColour(bmiRange);
+        resultBmi = Math.Round(resultBmi, 2);
+        BmiValue = resultBmi.ToString();
+        BmiRange = bmiRange;
+        BmiRangeColour = bmiRangeColour;
     }
 
     private void ExecuteReset(object parameter)

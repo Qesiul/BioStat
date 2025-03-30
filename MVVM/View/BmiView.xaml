@@ -59,7 +59,7 @@
             <StackPanel Orientation="Horizontal">
             <TextBox PreviewTextInput="NumberOnlyTextBox" x:Name="ImperialTextBox1"
                      Visibility="Collapsed"
-                     Text="{Binding HeightValueFeet}"
+                     Text="{Binding HeightValueFeet, UpdateSourceTrigger=PropertyChanged}"
                      Width="140"
                      FontSize="16"
                      BorderThickness="3"
@@ -132,6 +132,8 @@
         <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
         <TextBlock Text="{Binding BmiValue}"
                    FontSize="44"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
                    Margin="0,40,0,0"
                    />
         <TextBlock x:Name="BmiRangeTextBlock" 

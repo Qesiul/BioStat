@@ -8,14 +8,16 @@ namespace BioStat.MVVM.Model;
 public class BmiModel
 {
 
-    public double CalculateBmi(double heightBmi, double weightBmi)
+    public double CalculateBmiMetric(double heightBmi, double weightBmi)
     {
-        if (heightBmi > 100)
-        {
             heightBmi = heightBmi / 100;
             return weightBmi / Math.Pow(heightBmi, 2);
-        }
-            return weightBmi / Math.Pow(heightBmi, 2) * 703;
+    }
+    
+    public double CalculateBmiImperial(double heightBmi, double weightBmi, double heightBmiFeet)
+    {
+        heightBmi = heightBmi + (heightBmiFeet * 12);
+        return weightBmi / Math.Pow(heightBmi, 2) * 703;
     }
     
     
