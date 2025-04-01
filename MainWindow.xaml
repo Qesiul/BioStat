@@ -12,9 +12,7 @@
         AllowsTransparency="True"
         WindowStyle = "None">
     
-    <Window.DataContext>
-        <viewModel:MainViewModel/>
-    </Window.DataContext>
+
         
     <Border Background="#F5F5F5" CornerRadius="30">
                 <Grid>
@@ -63,7 +61,7 @@
                       
                       <ContentControl Grid.Row="2" 
                                       Margin="20,10,20,0"
-                                      Content = "{Binding currentViewGS}"/>
+                                      Content = "{Binding CurrentViewModel}"/>
                       
                       <Border Grid.Row="3" Background="#4CAF50" CornerRadius="0,0,30,30">
                       <DockPanel >

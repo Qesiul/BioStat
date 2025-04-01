@@ -5,7 +5,7 @@
              xmlns:viewModel="clr-namespace:BioStat.MVVM.ViewModel"
              xmlns:view="clr-namespace:BioStat.MVVM.View"
              xmlns:model="clr-namespace:BioStat.MVVM.Model"
-             StartupUri="MainWindow.xaml">
+             >
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>

@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using BioStat.Core;
+using BioStat.MVVM.ViewModel;
 
 namespace BioStat.MVVM.View;
 

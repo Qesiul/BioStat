@@ -3,12 +3,15 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using BioStat.Core;
 using BioStat.MVVM.Model;
+using BioStat.MVVM.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace BioStat.MVVM.ViewModel;
 
 public class BmiViewModel : INotifyPropertyChanged
 {
     private readonly BmiModel bmiM;
+    private readonly IConfiguration _config;
     private string heightValue;
     private string heightValueFeet;
     private string weightValue;
@@ -104,6 +107,18 @@ public class BmiViewModel : INotifyPropertyChanged
         BmiValue = resultBmi.ToString();
         BmiRange = bmiRange;
         BmiRangeColour = bmiRangeColour;
+        var measurementBmi = new Measurement
+        {
+            Date = DateTime.Today,
+            Type = "BMI",
+            Value = resultBmi,
+            Unit = ""
+        };
+        
+        using var context = new MeasurmentsTrackerDataAccess(_config);
+        context.Measurements.Add(measurementBmi);
+        context.SaveChanges();
+
     }
 
     private void ExecuteReset(object parameter)
@@ -115,9 +130,10 @@ public class BmiViewModel : INotifyPropertyChanged
         BmiRange = string.Empty;
     }
     
-    public BmiViewModel()
+    public BmiViewModel(IConfiguration config)
     {
         bmiM = new BmiModel();
+        _config = config;
         BmiCommand = new RelayCommand(ExecuteCalculate, CanExecuteCalculate);
         ResetCommand = new RelayCommand(ExecuteReset);
     }
