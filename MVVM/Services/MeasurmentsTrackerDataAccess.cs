@@ -1,6 +1,8 @@
-﻿namespace BioStat.MVVM.Services;
+﻿using Microsoft.EntityFrameworkCore;
 
-public class MeasurmentsTrackerDataAccess
+namespace BioStat.MVVM.Services;
+
+public class MeasurmentsTrackerDataAccess : DbContext
 {
     
 }
