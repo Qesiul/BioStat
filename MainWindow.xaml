@@ -47,7 +47,7 @@
                                        FontSize="20"
                                        Style="{StaticResource MenuButtonTheme}"/>
                           
-                          <RadioButton Content="BMR"
+                          <RadioButton Content="RMR"
                                        Height="50"
                                        Foreground="#333333"
                                        FontSize="20"
