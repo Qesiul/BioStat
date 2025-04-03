@@ -25,7 +25,8 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             MinHeight="20"
-            MinWidth="20"/>
+            MinWidth="20"
+            CalendarDayButtonStyle="{StaticResource MarkedDayStyle}"/>
         </Viewbox>
         
         <TextBlock

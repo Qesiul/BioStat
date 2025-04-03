@@ -17,6 +17,7 @@ public class CalendarEventHandler
     {
         return _context.Measurements
             .Where(e => e.Date.Date == Date)
+            .Distinct()
             .ToList();
     }
 }
