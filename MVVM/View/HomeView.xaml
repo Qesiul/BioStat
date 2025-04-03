@@ -21,7 +21,7 @@
             Foreground="#333333"/>
         
         <Viewbox Grid.Row="1">
-        <Calendar 
+        <Calendar x:Name="CalendarHomeView"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             MinHeight="20"
