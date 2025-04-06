@@ -19,6 +19,12 @@
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.3" />
       <PackageReference Include="SQLite" Version="3.13.0" />
     </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="MeasurmentsTracker.db">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
     
     <ItemGroup>
         <None Update="appsettings.json">
