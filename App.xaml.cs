@@ -1,6 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Windows;
 using BioStat.MVVM.Services;
 using BioStat.MVVM.View;
@@ -25,11 +26,24 @@ public partial class App : Application
     
     protected override void OnStartup(StartupEventArgs e)
     {
-        AppDomain.CurrentDomain.SetData("DataDirectory", AppContext.BaseDirectory);
         base.OnStartup(e);
         
+        var appDataPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "BioStat"
+        );
+
+        if (!Directory.Exists(appDataPath))
+            Directory.CreateDirectory(appDataPath);
+        
+        string dbPath = Path.Combine(appDataPath, "MeasurmentsTracker.db");
+        
         IConfiguration config = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddInMemoryCollection(new[]
+            {
+                new KeyValuePair<string, string?>("ConnectionStrings:DefaultConnection", $"Data Source={dbPath}")
+            })
+
             .Build();
 
         var context = new MeasurmentsTrackerDataAccess(config);
