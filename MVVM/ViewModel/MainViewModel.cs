@@ -24,7 +24,11 @@ public class MainViewModel : ObservableObject
     public object CurrentViewModel
     {
         get {return currentViewModel;}
-        set {currentViewModel = value; OnPropertyChanged();}
+        set {currentViewModel = value; OnPropertyChanged();
+            if (currentViewModel is HomeViewModel)
+            {
+                HomeVM.RefreshCalendar();
+            }}
     }
     
     public MainViewModel(IConfiguration config)

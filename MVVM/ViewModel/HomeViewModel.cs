@@ -44,6 +44,7 @@ public class HomeViewModel : ObservableObject
     
     public ICommand NextMonthCommand { get; private set; }
     public ICommand PreviousMonthCommand { get; private set; }
+    public ICommand RefreshCommand { get; private set; }
 
     public HomeViewModel(IConfiguration configuration)
     {
@@ -54,6 +55,10 @@ public class HomeViewModel : ObservableObject
         
         NextMonthCommand = new RelayCommand(_ => GoToNextMonth());
         PreviousMonthCommand = new RelayCommand(_ => GoToPreviousMonth());
+        RefreshCommand = new RelayCommand(_ => UpdateCalendar());
+        
+        // Subscribe to the measurement added event
+        App.MeasurementAdded += (s, e) => UpdateCalendar();
         
         UpdateCalendar();
     }
@@ -82,6 +87,11 @@ public class HomeViewModel : ObservableObject
         {
             SelectedMonth--;
         }
+    }
+    
+    public void RefreshCalendar()
+    {
+        UpdateCalendar();
     }
     
     private void UpdateCalendar()

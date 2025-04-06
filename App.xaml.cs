@@ -16,6 +16,13 @@ namespace BioStat;
 /// </summary>
 public partial class App : Application
 {
+    public static event EventHandler MeasurementAdded;
+    
+    public static void OnMeasurementAdded()
+    {
+        MeasurementAdded?.Invoke(null, EventArgs.Empty);
+    }
+    
     protected override void OnStartup(StartupEventArgs e)
     {
         AppDomain.CurrentDomain.SetData("DataDirectory", AppContext.BaseDirectory);

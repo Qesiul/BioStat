@@ -85,6 +85,8 @@ namespace BioStat.MVVM.Model
             }
             
             _dbContext.SaveChanges();
+            
+            App.OnMeasurementAdded();
         }
     }
 }
