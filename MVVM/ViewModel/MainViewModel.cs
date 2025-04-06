@@ -25,7 +25,7 @@ public class MainViewModel : ObservableObject
     public MainViewModel(IConfiguration config)
     {
         _config = config;
-        HomeVM = new HomeViewModel();
+        HomeVM = new HomeViewModel(config);
         BmiVM = new BmiViewModel(config);
         CurrentViewModel = HomeVM;
 

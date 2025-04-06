@@ -4,36 +4,88 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BioStat.MVVM.View"
+             xmlns:viewmodel="clr-namespace:BioStat.MVVM.ViewModel"
              mc:Ignorable="d"
              d:DesignHeight="550" d:DesignWidth="600">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="450"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
+    
+    <Grid Margin="10">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    
+    <!-- Month/Year Header with Navigation -->
+    <Grid Grid.Row="0" Margin="0,0,0,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         
-        <TextBlock
-            Grid.Row="0"
-            Text="Welcome again!"
-            FontSize="36"
-            TextAlignment="Center"
-            Foreground="#333333"/>
-        
-        <Viewbox Grid.Row="1">
-        <Calendar x:Name="CalendarHomeView"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            MinHeight="20"
-            MinWidth="20"
-            CalendarDayButtonStyle="{StaticResource MarkedDayStyle}"/>
-        </Viewbox>
-        
-        <TextBlock
-            Grid.Row="2"
-            Text="Remember! You shouldn't check your body measurements every single day.&#x0a;To keep a healthy balance treat them as a nice to have knowledge once a week :)"
-            FontSize="14"
-            TextAlignment="Center"
-            Margin="0,10,0,0"/>
+        <Button Grid.Column="0" Content="&lt;" Width="30" Command="{Binding PreviousMonthCommand}"/>
+        <TextBlock Grid.Column="1" Text="{Binding CurrentMonthYear}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Button Grid.Column="2" Content="&gt;" Width="30" Command="{Binding NextMonthCommand}"/>
     </Grid>
+    
+    <!-- Calendar View -->
+    <Viewbox Grid.Row="1" Stretch="Uniform">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Day of Week Headers -->
+            <UniformGrid Grid.Row="0" Rows="1" Columns="7">
+                <TextBlock Text="Sun" FontWeight="Bold" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock Text="Mon" FontWeight="Bold" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock Text="Tue" FontWeight="Bold" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock Text="Wed" FontWeight="Bold" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock Text="Thu" FontWeight="Bold" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock Text="Fri" FontWeight="Bold" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock Text="Sat" FontWeight="Bold" HorizontalAlignment="Center" Padding="5"/>
+            </UniformGrid>
+            
+            <!-- Calendar Days -->
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding VisibleDays}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="6" Columns="7"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#DDDDDD" BorderThickness="1" Margin="1" Background="{Binding BackgroundColor}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                
+                                <!-- Day Number -->
+                                <TextBlock Grid.Row="0" 
+                                           Text="{Binding DayNumber}" 
+                                           HorizontalAlignment="Left" 
+                                           Margin="2,0,0,0" 
+                                           Foreground="{Binding DayNumberColor}"
+                                           FontWeight="{Binding DayNumberWeight}"/>
+                                
+                                <!-- Data indicator -->
+                                <Button Grid.Row="1" 
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Command="{Binding ClickCommand}"
+                                        ToolTip="{Binding TooltipText}">
+                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                        <Ellipse Width="8" Height="8" Fill="Green" Visibility="{Binding HasDataVisibility}"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Viewbox>
+</Grid>
 </UserControl>
