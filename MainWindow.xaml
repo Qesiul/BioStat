@@ -29,9 +29,10 @@
                           FontSize="46"
                           Foreground="#333333"
                           VerticalAlignment="Center"
-                          HorizontalAlignment="Center"/>
+                          HorizontalAlignment="Center"
+                          FontFamily="pack://application:,,,/Fonts/#Inter Light"/>
                       
-                      <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Background="#4CAF50" Width="600">
+                      <UniformGrid Grid.Row="1" Rows="1" Columns="5" HorizontalAlignment="Center" Background="#4CAF50" Width="600">
                           <RadioButton Content="BMI"
                                        Height="50"
                                        Foreground="#333333"
@@ -43,21 +44,32 @@
                                        Height="50"
                                        Foreground="#333333"
                                        FontSize="20"
-                                       Style="{StaticResource MenuButtonTheme}"/>
+                                       Style="{StaticResource MenuButtonTheme}"
+                                       Command="{Binding PlaceholderViewCommand}"/>
+                          
+                          <RadioButton Content="🏠 HOME"
+                                       Height="50"
+                                       Foreground="#333333"
+                                       FontSize="20"
+                                       IsChecked="True"
+                                       Style="{StaticResource MenuButtonTheme}"
+                                       Command="{Binding HomeViewCommand}"/>
                           
                           <RadioButton Content="RMR"
                                        Height="50"
                                        Foreground="#333333"
                                        FontSize="20"
-                                       Style="{StaticResource MenuButtonTheme}"/>
+                                       Style="{StaticResource MenuButtonTheme}"
+                                       Command="{Binding PlaceholderViewCommand}"/>
                           
                           <RadioButton Content="WHR"
                                        Height="50"
                                        Foreground="#333333"
                                        FontSize="20"
-                                       Style="{StaticResource MenuButtonTheme}"/>
+                                       Style="{StaticResource MenuButtonTheme}"
+                                       Command="{Binding PlaceholderViewCommand}"/>
                           
-                      </StackPanel>
+                      </UniformGrid>
                       
                       <ContentControl Grid.Row="2" 
                                       Margin="20,10,20,0"
@@ -65,8 +77,8 @@
                       
                       <Border Grid.Row="3" Background="#4CAF50" CornerRadius="0,0,30,30">
                       <DockPanel >
-                          <TextBlock DockPanel.Dock="Right" Text="Press ESC button on your keyboard to close the App!" Margin="0,20,10,0"/>
-                          <TextBlock Text="Author: Luis Wysocki" Margin="10,20,0,0"/>
+                          <TextBlock DockPanel.Dock="Right" Text="Press ESC button on your keyboard to close BioStat!" Margin="0,20,10,0" FontFamily="pack://application:,,,/Fonts/#Inter"/>
+                          <TextBlock Text="Version: 0.1.0" Margin="10,20,0,0" FontFamily="pack://application:,,,/Fonts/#Inter"/>
                       </DockPanel>
                       </Border>
                                   

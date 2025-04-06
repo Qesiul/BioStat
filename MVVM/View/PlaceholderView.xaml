@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="BioStat.MVVM.View.PlaceholderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:BioStat.MVVM.View"
+             mc:Ignorable="d"
+             d:DesignHeight="550" d:DesignWidth="600">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center"
+                   Text="Currently this page is under development!"
+                   Margin="0,40,0,0"
+                   FontSize="28"
+                   Foreground="#333333"
+                   FontFamily="pack://application:,,,/Fonts/#Inter Light"
+
+        />
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center"
+            Text="We are working hard to add this feature,&#x0a; you can expect it in the future updates!"
+            Margin="0,20,0,20"
+            FontSize="26"
+            Foreground="#333333"
+            FontFamily="pack://application:,,,/Fonts/#Inter Light"
+        />
+        <Image Grid.Row="2" Source="/Images/placeholderCat.jpg"
+               MaxHeight="340"
+               />
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center"
+                   Text="*For you as an apology"
+                   Margin="140,0,0,0"
+                   FontSize="18"
+                   FontFamily="pack://application:,,,/Fonts/#Inter Light Italic"/>
+        
+    </Grid>
+</UserControl>

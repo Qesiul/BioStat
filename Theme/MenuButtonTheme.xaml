@@ -14,12 +14,12 @@
                             HorizontalAlignment="Stretch"
                             Background="{TemplateBinding Background}">
                             
-                            <TextBlock 
-                                Text="{TemplateBinding Property = Content}"
-                                VerticalAlignment="Center"
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
                                 HorizontalAlignment="Center"
-                                Margin="50,0,50,0"
-                                />
+                                VerticalAlignment="Center"
+                                Margin="10,0"
+                                RecognizesAccessKey="True"/>
                             </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -27,6 +27,7 @@
             
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Inter"/>
         </Style.Setters>
         
         <Style.Triggers>

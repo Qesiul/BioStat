@@ -36,7 +36,8 @@
             <TextBlock 
                 Text="Height:"
                 FontSize="16"
-                Margin="15,50,0,5"/>
+                Margin="15,50,0,5"
+                FontFamily="pack://application:,,,/Fonts/#Inter Light"/>
             <StackPanel Orientation="Horizontal">
             <TextBox PreviewTextInput="NumberOnlyTextBox" x:Name="MetricTextBox"
                      Visibility="Visible"
@@ -51,6 +52,7 @@
                 Visibility="Visible"
                 Text="cm"
                 FontSize="14"
+                FontFamily="pack://application:,,,/Fonts/#Inter Light"
                 Margin="3,8,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -67,7 +69,8 @@
                 Visibility="Collapsed" x:Name="ImperialTextBlock1"
                 Text="ft"
                 FontSize="14"
-                Margin="3, 8,0,0"/>
+                Margin="3, 8,0,0"
+                FontFamily="pack://application:,,,/Fonts/#Inter Light"/>
             <TextBox PreviewTextInput="NumberOnlyTextBox" x:Name="ImperialTextBox2"
                      Visibility="Collapsed"
                      Text="{Binding HeightValue, UpdateSourceTrigger=PropertyChanged}"
@@ -81,6 +84,7 @@
                 Visibility="Collapsed"
                 Text="in"
                 FontSize="14"
+                FontFamily="pack://application:,,,/Fonts/#Inter Light"
                 Margin="3,8,10,0"/>
             </StackPanel>
         </StackPanel>
@@ -88,6 +92,7 @@
             <TextBlock
                 Text="Weight:"
                 FontSize="16"
+                FontFamily="pack://application:,,,/Fonts/#Inter Light"
                 Margin="15,50,0,0"
                 />
             <StackPanel Orientation="Horizontal">
@@ -103,6 +108,7 @@
                 <TextBlock x:Name="WeightTextBlock"
                     FontSize="14"
                     Text="kg"
+                    FontFamily="pack://application:,,,/Fonts/#Inter Light"
                     Margin="3,8,0,0"/>
             </StackPanel>
         </StackPanel>
@@ -132,12 +138,14 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Margin="0,40,0,0"
+                   FontFamily="pack://application:,,,/Fonts/#Inter Light"
                    />
         <TextBlock x:Name="BmiRangeTextBlock" 
                 Text="{Binding BmiRange}"
                 Foreground="{Binding BmiRangeColour}"
                 Margin="0,20,0,0"
                 FontSize="44"
+                FontFamily="pack://application:,,,/Fonts/#Inter Light"
                 />
         </StackPanel>
     </Grid>
