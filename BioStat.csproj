@@ -7,6 +7,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
         <Version>0.1.0</Version>
+        <ApplicationIcon>biostat.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
