@@ -14,7 +14,6 @@ namespace BioStat.MVVM.Model
         void SaveMeasurement(Measurement measurement);
     }
     
-    // This is the implementation class that connects to your existing database
     public class MeasurementRepository : IMeasurementRepository
     {
         private readonly MeasurmentsTrackerDataAccess _dbContext;
@@ -26,22 +25,52 @@ namespace BioStat.MVVM.Model
         
         public Dictionary<DateTime, List<Measurement>> GetMeasurementsByDateRange(DateTime startDate, DateTime endDate)
         {
-            // Query your database to get measurements in the date range
-            var measurements = _dbContext.Measurements
+            var allMeasurements = _dbContext.Measurements
                 .Where(m => m.Date >= startDate && m.Date <= endDate)
                 .ToList();
+            
+            var result = new Dictionary<DateTime, List<Measurement>>();
+            
+            foreach (var dateGroup in allMeasurements.GroupBy(m => m.Date.Date))
+            {
+                var date = dateGroup.Key;
+                var latestMeasurements = new List<Measurement>();
                 
-            // Group them by date
-            return measurements
-                .GroupBy(m => m.Date.Date)
-                .ToDictionary(g => g.Key, g => g.ToList());
+                foreach (var typeGroup in dateGroup.GroupBy(m => m.Type))
+                {
+                    var latestMeasurement = typeGroup
+                        .OrderByDescending(m => m.Date)
+                        .ThenByDescending(m => m.Id)
+                        .First();
+                        
+                    latestMeasurements.Add(latestMeasurement);
+                }
+                
+                result[date] = latestMeasurements;
+            }
+            
+            return result;
         }
         
         public List<Measurement> GetMeasurementsByDate(DateTime date)
         {
-            return _dbContext.Measurements
+            var allMeasurements = _dbContext.Measurements
                 .Where(m => m.Date.Date == date.Date)
                 .ToList();
+                
+            var latestMeasurements = new List<Measurement>();
+            
+            foreach (var typeGroup in allMeasurements.GroupBy(m => m.Type))
+            {
+                var latestMeasurement = typeGroup
+                    .OrderByDescending(m => m.Date)
+                    .ThenByDescending(m => m.Id)
+                    .First();
+                    
+                latestMeasurements.Add(latestMeasurement);
+            }
+            
+            return latestMeasurements;
         }
         
         public void SaveMeasurement(Measurement measurement)
@@ -52,7 +81,6 @@ namespace BioStat.MVVM.Model
             }
             else
             {
-                // Update existing measurement
                 _dbContext.Update(measurement);
             }
             

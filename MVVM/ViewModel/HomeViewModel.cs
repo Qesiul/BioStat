@@ -93,9 +93,8 @@ public class HomeViewModel : ObservableObject
         var offset = (int)firstDay.DayOfWeek;
         var today = DateTime.Today;
         
-        // Get measurements for the visible date range
         var startDate = firstDay.AddDays(-offset);
-        var endDate = startDate.AddDays(42); // 6 weeks
+        var endDate = startDate.AddDays(42);
         var measurementsByDate = _measurementRepository.GetMeasurementsByDateRange(startDate, endDate);
         
         for (int i = 0; i < 42; i++)
@@ -103,8 +102,6 @@ public class HomeViewModel : ObservableObject
             var currentDate = firstDay.AddDays(i - offset);
             var isCurrentMonth = currentDate.Month == SelectedMonth;
             var isToday = currentDate.Date == today;
-            
-            // Check if there's data for this date
             var hasData = measurementsByDate.TryGetValue(currentDate.Date, out var measurements);
             
             var vm = new DayCellViewModel
@@ -125,7 +122,7 @@ public class HomeViewModel : ObservableObject
     
     private string FormatMeasurementsForTooltip(List<Measurement> measurements)
     {
-        return string.Join("\n", measurements.Select(m => $"{m.Type}: {m.Value}{m.Unit}"));
+        return string.Join("\n", measurements.Take(4).Select(m => $"{m.Type}: {m.Value}{m.Unit}"));
     }
 
     private void ShowDetails(DateTime date)
