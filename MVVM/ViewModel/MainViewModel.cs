@@ -1,5 +1,6 @@
 ﻿using BioStat.Core;
 using BioStat.MVVM.Model;
+using BioStat.MVVM.View;
 using Microsoft.Extensions.Configuration;
 
 namespace BioStat.MVVM.ViewModel;
@@ -10,9 +11,13 @@ public class MainViewModel : ObservableObject
     public RelayCommand HomeViewCommand { get; set; }
     public RelayCommand BmiViewCommand { get; set; }
     
+    public RelayCommand PlaceholderViewCommand { get; set; }
+    
     public HomeViewModel HomeVM { get; set; }
     
     public BmiViewModel BmiVM { get; set; }
+
+    public object PlaceholderV { get; set; } = new PlaceholderView();
     
     private object currentViewModel;
 
@@ -37,6 +42,11 @@ public class MainViewModel : ObservableObject
         BmiViewCommand = new RelayCommand(o =>
        {
            CurrentViewModel = BmiVM;
+        });
+
+        PlaceholderViewCommand = new RelayCommand(o =>
+        {
+            CurrentViewModel = PlaceholderV;
         });
     }
     
