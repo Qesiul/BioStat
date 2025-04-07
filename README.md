@@ -59,7 +59,7 @@ The application emphasizes clean architecture (MVVM), simplicity, and performanc
 ### 🧪 Running the App (Dev)
 
 ```bash
-git clone https://github.com/wielki-bo/biostat.git
+git clone https://github.com/Qesiul/biostat.git
 cd biostat
 dotnet restore
 dotnet run
